@@ -9,7 +9,7 @@ public_subnet2_cidr  = "10.20.102.0/24"
 
 # Lauch Template
 # aws ssm get-parameters --names /aws/service/ecs/optimized-ami/amazon-linux-2023/arm64/recommended --region us-east-1
-ami_image_date         = "2025-06"
+ami_image_date         = "2025-07"
 linux_lt_instance_type = "t4g.small" # 2 vCPU and 2 GB
 
 # ASG
@@ -23,5 +23,8 @@ linux_cp_target_capacity       = 100
 #endregion
 
 # ACM
-domain_name               = "deploypro.cloud"
-subject_alternative_names = ["test.deploypro.cloud"]
+domain_name               = "ecs.gitops.club"
+subject_alternative_names = ["preview.ecs.gitops.club"]
+
+# Route53 Zone
+route53_zone_id = "Z072103134MZHYA0ISTX6"
