@@ -12,19 +12,19 @@ Infrastructure as Code for Blue/Green deployments using AWS ECS, ALB, and Terraf
 
 ### 1. Create S3 Backend
 ```bash
-aws s3api create-bucket --bucket bgdemo-terraform-nonprod --region us-east-1 --acl private
-aws s3api put-bucket-versioning --bucket bgdemo-terraform-nonprod --versioning-configuration Status=Enabled
+aws s3api create-bucket --bucket kcdcolombia-terraform-prod --region us-east-1 --acl private
+aws s3api put-bucket-versioning --bucket kcdcolombia-terraform-prod --versioning-configuration Status=Enabled
 ```
 
 ### 2. Deploy Infrastructure
 ```bash
-./deploy-infra.sh core nonprod plan
-./deploy-infra.sh core nonprod apply
+./deploy-infra.sh core prod plan
+./deploy-infra.sh core prod apply
 ```
 
 ### 3. Cleanup
 ```bash
-./deploy-infra.sh core nonprod destroy
+./deploy-infra.sh core prod destroy
 ```
 
 ## Structure
