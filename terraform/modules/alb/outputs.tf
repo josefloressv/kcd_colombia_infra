@@ -1,9 +1,9 @@
 output "alb_http_listener_arn" {
-  value = length(aws_lb_listener.http) > 0 ? aws_lb_listener.http[0].arn : null
+  value = aws_lb_listener.http.arn
 }
 
 output "alb_https_listener_arn" {
-  value = length(aws_lb_listener.https) > 0 ? aws_lb_listener.https[0].arn : null
+  value = aws_lb_listener.https.arn
 }
 
 output "alb_dns_name" {

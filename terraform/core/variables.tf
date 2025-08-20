@@ -88,3 +88,8 @@ variable "subject_alternative_names" {
   default = []
 }
 #endregion
+
+# Route53 Zone
+variable "route53_zone_id" {
+  type = string
+}
