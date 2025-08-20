@@ -7,6 +7,9 @@ locals {
   image_repository_url = "nginx"
   current_image_tag    = "latest"
   common_tags = {
+    Event          = "KCDColombia2025"
+    CostAllocation = "Direct"
+    Workload       = "ECS"
     Platform       = var.platform
     Application    = var.application
     Environment    = var.environment

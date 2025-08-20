@@ -1,5 +1,5 @@
 # App config
-application = "nginx-bg"
+application = "webapp-color"
 name_sufix  = ""
 app_port    = 80
 
@@ -20,8 +20,8 @@ task_placement_strategy_rules = [
 ]
 
 # Lb listener
-lb_listener_rule_host_header          = ["deploypro.cloud"]
-lb_listener_rule_host_header_inactive = ["test.deploypro.cloud"]
+lb_listener_rule_host_header          = ["ecs.gitops.club"]
+lb_listener_rule_host_header_inactive = ["preview.ecs.gitops.club"]
 lb_listener_rule_path_pattern         = ["/*"]
 
 # Target Group
