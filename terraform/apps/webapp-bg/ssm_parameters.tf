@@ -33,3 +33,11 @@ resource "aws_ssm_parameter" "active_color" {
     ignore_changes = [value]
   }
 }
+resource "aws_ssm_parameter" "docker_tag" {
+  name  = "${local.ssm_prefix}/docker_tag"
+  type  = "String"
+  value = "latest"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
