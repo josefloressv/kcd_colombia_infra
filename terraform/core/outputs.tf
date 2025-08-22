@@ -43,3 +43,11 @@ output "linux_ecs_cluster_capacity_provider_name" {
 output "app_iam_role_arn" {
   value = aws_iam_role.app.arn
 }
+
+output "alb_sg_id" {
+  value = aws_security_group.alb.id
+}
+
+output "asg_sg_id" {
+  value = aws_security_group.asg.id
+}

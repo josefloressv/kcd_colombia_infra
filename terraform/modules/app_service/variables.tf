@@ -218,3 +218,14 @@ variable "service_discovery_namespace" {
 variable "vpc_cidr" {
   type = string
 }
+
+# Optional security group ids to allow traffic from ALB and ASG
+variable "alb_sg_id" {
+  type    = string
+  default = ""
+}
+
+variable "asg_sg_id" {
+  type    = string
+  default = ""
+}

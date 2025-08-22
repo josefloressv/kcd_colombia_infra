@@ -1,7 +1,7 @@
 # App config
 application = "webapp-color"
 name_sufix  = ""
-app_port    = 80
+app_port    = 8080
 
 # Task definition
 task_cpu_size         = 512
@@ -37,10 +37,10 @@ tg_health_check_path                = "/"
 
 # Container Health Check
 container_check_path         = "/"
-container_check_start_period = 40 # seconds
+container_check_start_period = 10 # seconds
 container_check_interval     = 10 # seconds
 container_check_timeout      = 5  # seconds
-container_check_retries      = 4
+container_check_retries      = 2
 
 # Logs
 logs_retention_in_days = 5

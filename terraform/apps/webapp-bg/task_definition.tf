@@ -22,10 +22,6 @@ resource "aws_ecs_task_definition" "main" {
       ]
       environment = [
         {
-          name  = "SERVER_PORT"
-          value = tostring(var.app_port)
-        },
-        {
           name  = "SPRING_CONFIG_IMPORT"
           value = "aws-secretsmanager:/secrets/${var.environment}/services/${var.application}"
         }
@@ -35,14 +31,6 @@ resource "aws_ecs_task_definition" "main" {
           name      = "SPRING_DATASOURCE_USERNAME"
           valueFrom = "${local.ssm_prefix}/SPRING_DATASOURCE_USERNAME"
         },
-        {
-          name      = "SPRING_DATASOURCE_PASSWORD"
-          valueFrom = "${local.ssm_prefix}/SPRING_DATASOURCE_PASSWORD"
-        },
-        {
-          name      = "SPRING_DATASOURCE_URL"
-          valueFrom = "${local.ssm_prefix}/SPRING_DATASOURCE_URL"
-        }
       ]
       mountPoints = []
       volumesFrom = []
@@ -56,13 +44,13 @@ resource "aws_ecs_task_definition" "main" {
       }
       # Purpose: This health check ensures that the container within the task is functioning properly.
       # Scope: It runs inside the container and is used by the ECS service to determine if the container should be restarted.
-      healthCheck = {
-        command     = ["CMD-SHELL", "curl -f http://localhost:${var.app_port}${var.container_check_path} || exit 1"]
-        interval    = var.container_check_interval
-        timeout     = var.container_check_timeout
-        retries     = var.container_check_retries
-        startPeriod = var.container_check_start_period
-      }
+      # healthCheck = {
+      #   command     = ["CMD-SHELL", "wget -qO- --timeout=5 http://localhost:${var.app_port}${var.container_check_path} >/dev/null || exit 1"]
+      #   interval    = var.container_check_interval
+      #   timeout     = var.container_check_timeout
+      #   retries     = var.container_check_retries
+      #   startPeriod = var.container_check_start_period
+      # }
     }
   ])
 }

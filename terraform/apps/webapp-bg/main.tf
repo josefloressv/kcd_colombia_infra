@@ -18,6 +18,8 @@ module "nginx_bg" {
   private_subnet_ids = local.tfcore.private_subnet_ids
   vpc_id             = local.tfcore.vpc_id
   vpc_cidr           = local.tfcore.vpc_cidr
+  alb_sg_id          = local.tfcore.alb_sg_id
+  asg_sg_id          = local.tfcore.asg_sg_id
 
   # Blue/Green Deployment
   enable_blue_green_deployment = true

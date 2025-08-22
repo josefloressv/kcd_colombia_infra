@@ -14,8 +14,8 @@ ami_image_date         = "2025-07"
 linux_lt_instance_type = "t4g.small" # 2 vCPU and 2 GB
 
 # ASG
-linux_asg_min_size = 0
-linux_asg_max_size = 0
+linux_asg_min_size = 1
+linux_asg_max_size = 3
 
 # Capacity Provider
 linux_cp_min_scaling_step_size = 1
