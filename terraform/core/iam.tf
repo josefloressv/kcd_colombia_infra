@@ -55,6 +55,7 @@ data "aws_iam_policy_document" "app" {
       "ecs:RegisterTaskDefinition",
       "autoscaling:DescribeAutoScalingGroups",
       "autoscaling:SetDesiredCapacity",
+      "ecr:GetAuthorizationToken",
     ]
 
     resources = ["*"]
