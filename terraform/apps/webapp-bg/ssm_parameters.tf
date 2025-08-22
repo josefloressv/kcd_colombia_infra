@@ -41,3 +41,9 @@ resource "aws_ssm_parameter" "docker_tag" {
     ignore_changes = [value]
   }
 }
+
+resource "aws_ssm_parameter" "live_service_minimum_tasks" {
+  name  = "${local.ssm_prefix}/live_service_minimum_tasks"
+  type  = "String"
+  value = var.task_min_number
+}

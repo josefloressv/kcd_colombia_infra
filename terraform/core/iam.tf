@@ -50,6 +50,7 @@ data "aws_iam_policy_document" "app" {
     actions = [
       "ecs:List*",
       "elasticloadbalancing:Describe*",
+      "elasticloadbalancing:ModifyRule",
       "ecs:DescribeTaskDefinition",
       "ecs:DeregisterTaskDefinition",
       "ecs:RegisterTaskDefinition",
@@ -119,7 +120,8 @@ data "aws_iam_policy_document" "app" {
     effect  = "Allow"
     actions = ["ssm:PutParameter"]
     resources = [
-      "arn:aws:ssm:us-east-1:${local.aws_account_id}:parameter/${var.platform}/deploy/*"
+      "arn:aws:ssm:us-east-1:${local.aws_account_id}:parameter/${var.platform}/${var.application}/${var.environment}/docker_tag",
+      "arn:aws:ssm:us-east-1:${local.aws_account_id}:parameter/${var.platform}/${var.application}/${var.environment}/active_color"
     ]
   }
 
