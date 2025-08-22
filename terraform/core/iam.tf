@@ -67,7 +67,9 @@ data "aws_iam_policy_document" "app" {
       "ecr:PutImage",
       "ecr:InitiateLayerUpload",
       "ecr:UploadLayerPart",
-      "ecr:CompleteLayerUpload"
+      "ecr:CompleteLayerUpload",
+      "ecr:BatchCheckLayerAvailability",
+      "ecr:BatchGetImage"
     ]
 
     resources = [
