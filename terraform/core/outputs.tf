@@ -38,3 +38,8 @@ output "linux_ecs_cluster_capacity_provider_name" {
   value = module.asg_ecs_linux.ecs_cluster_capacity_provider_name
 }
 #endregion
+
+#region Application IAM Role
+output "app_iam_role_arn" {
+  value = aws_iam_role.app.arn
+}

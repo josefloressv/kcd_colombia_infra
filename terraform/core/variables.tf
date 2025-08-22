@@ -10,6 +10,10 @@ variable "platform" {
 variable "environment" {
   type = string
 }
+
+variable "application" {
+  type = string
+}
 #endregion
 
 #region Network
