@@ -1,24 +1,6 @@
-resource "aws_ssm_parameter" "SPRING_DATASOURCE_USERNAME" {
-  name  = "${local.ssm_prefix}/SPRING_DATASOURCE_USERNAME"
-  type  = "String"
-  value = "dummy"
-  lifecycle {
-    ignore_changes = [value]
-  }
-}
-
-resource "aws_ssm_parameter" "SPRING_DATASOURCE_PASSWORD" {
-  name  = "${local.ssm_prefix}/SPRING_DATASOURCE_PASSWORD"
+resource "aws_ssm_parameter" "A_SECRET" {
+  name  = "${local.ssm_prefix}/A_SECRET"
   type  = "SecureString"
-  value = "dummy"
-  lifecycle {
-    ignore_changes = [value]
-  }
-}
-
-resource "aws_ssm_parameter" "SPRING_DATASOURCE_URL" {
-  name  = "${local.ssm_prefix}/SPRING_DATASOURCE_URL"
-  type  = "String"
   value = "dummy"
   lifecycle {
     ignore_changes = [value]
@@ -33,6 +15,7 @@ resource "aws_ssm_parameter" "active_color" {
     ignore_changes = [value]
   }
 }
+
 resource "aws_ssm_parameter" "docker_tag" {
   name  = "${local.ssm_prefix}/docker_tag"
   type  = "String"

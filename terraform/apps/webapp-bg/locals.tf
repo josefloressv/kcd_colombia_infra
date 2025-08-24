@@ -4,7 +4,7 @@ locals {
   ssm_prefix           = "/${var.platform}/${var.application}/${var.environment}"
   aws_account_id       = data.aws_caller_identity.current.account_id
   image_repository_url = module.nginx_bg.image_repository_uri
-  current_image_tag    = "9336cad"
+  current_image_tag    = nonsensitive(aws_ssm_parameter.docker_tag.value)
   common_tags = {
     Event          = "KCDColombia2025"
     CostAllocation = "Direct"

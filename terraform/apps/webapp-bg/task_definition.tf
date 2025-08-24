@@ -22,14 +22,22 @@ resource "aws_ecs_task_definition" "main" {
       ]
       environment = [
         {
-          name  = "SPRING_CONFIG_IMPORT"
-          value = "aws-secretsmanager:/secrets/${var.environment}/services/${var.application}"
+          name  = "BG_COLOR"
+          value = "#034a57"
+        },
+        {
+          name  = "FONT_COLOR"
+          value = "#d2dbe6"
+        },
+        {
+          name  = "MESSAGE"
+          value = "Hola desde ECS b/g Deployment"
         }
       ]
       secrets = [
         {
-          name      = "SPRING_DATASOURCE_USERNAME"
-          valueFrom = "${local.ssm_prefix}/SPRING_DATASOURCE_USERNAME"
+          name      = "A_SECRET"
+          valueFrom = "${local.ssm_prefix}/A_SECRET"
         },
       ]
       mountPoints = []
