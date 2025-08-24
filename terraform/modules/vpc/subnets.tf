@@ -14,6 +14,10 @@ resource "aws_subnet" "public_subnet" {
         "public-subnet",
         count.index
       ]))
+  # Tags for AWS Load Balancer Controller / auto-discovery
+  "kubernetes.io/role/elb" = "1"
+      # If you later use private subnets for internal load balancers, tag them with kubernetes.io/role/internal-elb = 1
     }
+    , var.cluster_name != "" ? { "kubernetes.io/cluster/${var.cluster_name}" = "shared" } : {}
   )
 }
