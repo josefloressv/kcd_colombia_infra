@@ -52,3 +52,19 @@ variable "argocd_chart_version" {
   description = "The version of ArgoCD to deploy"
 }
 #endregion
+
+#region ACM
+variable "domain_name" {
+  type = string
+}
+
+variable "subject_alternative_names" {
+  type    = list(string)
+  default = []
+}
+#endregion
+
+# Route53 Zone
+variable "route53_zone_id" {
+  type = string
+}

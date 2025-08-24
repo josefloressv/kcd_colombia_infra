@@ -17,3 +17,13 @@ module "eks" {
   tags                = local.tags
 
 }
+
+
+# ACM
+module "acm" {
+  source                    = "../modules/acm"
+  tags                      = local.tags
+  route53_zone_id           = var.route53_zone_id
+  domain_name               = var.domain_name
+  subject_alternative_names = var.subject_alternative_names
+}

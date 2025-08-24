@@ -27,3 +27,9 @@ output "argocd_initial_admin_secret" {
   value = "kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=\"{.data.password}\" | base64 -d"
 }
 #endregion
+
+#region ACM
+output "acm_certificate_arn" {
+  value = module.acm.certificate_id
+}
+#endregion

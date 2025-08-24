@@ -10,3 +10,10 @@ node_scaling_config = {
 
 # ArgoCD
 argocd_chart_version = "8.3.0"
+
+# ACM
+domain_name               = "eks.gitops.club"
+subject_alternative_names = ["preview.eks.gitops.club"]
+
+# Route53 Zone
+route53_zone_id = "Z00971581ZTIB608MSIO0"
