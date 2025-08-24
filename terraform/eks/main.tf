@@ -1,8 +1,9 @@
 module "vpc" {
   source = "../modules/vpc"
 
-  tags     = local.tags
-  vpc_cidr = var.vpc_cidr
+  tags         = local.tags
+  vpc_cidr     = var.vpc_cidr
+  cluster_name = local.name_prefix
 
 }
 
