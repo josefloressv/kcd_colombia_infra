@@ -18,18 +18,26 @@ output "vpc_public_subnet_ids" {
 }
 #endregion
 
-# region Helm outputs
-output "argocd_load_balancer_dns" {
-  value = "https://${data.kubernetes_service.argocd_server.status[0].load_balancer[0].ingress[0].hostname}"
-}
-
-output "argocd_initial_admin_secret" {
-  value = "kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=\"{.data.password}\" | base64 -d"
-}
-#endregion
-
 #region ACM
 output "acm_certificate_arn" {
   value = module.acm.certificate_id
+}
+#endregion
+
+#region SA
+output "irsa_aws_alb_service_account_name" {
+  value = kubernetes_service_account.alb_sa.metadata[0].name
+}
+
+output "irsa_aws_alb_service_account_arn" {
+  value = kubernetes_service_account.alb_sa.metadata[0].annotations["eks.amazonaws.com/role-arn"]
+}
+
+output "irsa_aws_externaldns_service_account_name" {
+  value = kubernetes_service_account.externaldns_sa.metadata[0].name
+}
+
+output "irsa_aws_externaldns_service_account_arn" {
+  value = kubernetes_service_account.externaldns_sa.metadata[0].annotations["eks.amazonaws.com/role-arn"]
 }
 #endregion

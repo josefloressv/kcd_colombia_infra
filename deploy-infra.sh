@@ -95,6 +95,9 @@ terraform validate
 # -------------------------------------------------------------------------------
 # terraform state rm [tfstat elemental]
 # terraform import -var-file="$VAR_FILE" [tfstat elemental] [aws arn/id]
+# terraform state rm helm_release.aws_load_balancer_controller
+# terraform state rm helm_release.external_dns
+# terraform state rm helm_release.argocd
 #
 # -------------------------------------------------------------------------------
 
