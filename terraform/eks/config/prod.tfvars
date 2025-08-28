@@ -3,8 +3,8 @@ vpc_cidr           = "10.99.0.0/16"
 kubernetes_version = "1.33"
 instance_types     = ["t3.medium"]
 node_scaling_config = {
-  min_size     = 1
-  desired_size = 1
+  min_size     = 2
+  desired_size = 2
   max_size     = 3
 }
 

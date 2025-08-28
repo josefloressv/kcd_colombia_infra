@@ -108,6 +108,8 @@ terraform plan \
   -var-file="$VAR_FILE" \
   -out="$ENV.tfplan"
 
+  # -target=module.eks \
+
 terraform output
 
 # Apply
